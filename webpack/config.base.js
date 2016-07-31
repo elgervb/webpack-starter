@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import WebpackErrorNotificationPlugin from 'webpack-error-notification';
 import { config } from '../package.json';
 import cssnext from 'postcss-cssnext';
 import cssnextConfig from './config/cssnext.json';
@@ -96,6 +97,7 @@ export default () => {
                 }
             ]),
             new webpack.NoErrorsPlugin(),
+            new WebpackErrorNotificationPlugin(),
         ]
     }
 };
