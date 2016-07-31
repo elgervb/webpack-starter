@@ -22,7 +22,6 @@
   "author": "Elger van Boxtel",
   "license": "PRIVATE",
   "dependencies": {
-    "autoprefixer": "6.3.7",
     "copy-webpack-plugin": "3.0.1",
     "extract-text-webpack-plugin": "1.0.1",
     "webpack": "1.13.1"
@@ -43,6 +42,7 @@
     "htmlhint-loader": "0.1.0",
     "node-sass": "3.8.0",
     "npm-check": "5.2.2",
+    "postcss-cssnext": "2.7.0",
     "postcss-loader": "0.9.1",
     "raw-loader": "0.5.1",
     "rimraf": "2.5.4",

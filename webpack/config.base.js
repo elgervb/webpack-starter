@@ -1,12 +1,10 @@
 import path from 'path';
-import autoprefixer from 'autoprefixer';
 import webpack from 'webpack';
-
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-
 import { config } from '../package.json';
-import autoprefixerConfig from '../node-config/autoprefixer.json';
+import cssnext from 'postcss-cssnext';
+import cssnextConfig from './config/cssnext.json';
 
 export const source = path.resolve(path.join(config.src));
 export const destination = path.resolve(path.join(config.dest));
@@ -60,6 +58,7 @@ export default () => {
                 },
             ]
         },
+        
         eslint: {
             configFile: '.eslintrc'
         },
@@ -80,10 +79,7 @@ export default () => {
         },
 
         postcss: () => {
-            return {
-                defaults: [ autoprefixer ],
-                cleaner:  [ autoprefixer(autoprefixerConfig) ]
-            };
+            return [cssnext(cssnextConfig)];
         },
 
         plugins: [
