@@ -12,8 +12,7 @@
     "src": "./src"
   },
   "scripts": {
-    "build": "npm run build:modernizr & npm run build:webpack",
-    "build:modernizr": "modernizr -c node-config/modernizr.json -d $npm_package_config_dest/$npm_package_config_app/js",
+    "build": "npm run build:webpack",
     "build:webpack": "babel-node -- ./node_modules/.bin/webpack --progress --colors --config webpack/config.build.js",
     "clean": "rimraf $npm_package_config_dest",
     "start": "babel-node -- ./node_modules/webpack-dev-server/bin/webpack-dev-server --inline --hot --colors --content-base=$npm_package_config_src --config ./webpack/config.dev.js --port $npm_package_config_port",
@@ -24,10 +23,8 @@
   "license": "PRIVATE",
   "dependencies": {
     "autoprefixer": "6.3.7",
-    "bootstrap": "git://github.com/twbs/bootstrap.git#d71c080ab52333e31af61558ba81b9ed04b3c593",
     "copy-webpack-plugin": "3.0.1",
     "extract-text-webpack-plugin": "1.0.1",
-    "jquery": "3.1.0",
     "webpack": "1.13.1"
   },
   "devDependencies": {
@@ -44,7 +41,6 @@
     "eslint-loader": "1.4.1",
     "eslint-plugin-import": "1.12.0",
     "htmlhint-loader": "0.1.0",
-    "modernizr": "3.3.1",
     "node-sass": "3.8.0",
     "npm-check": "5.2.2",
     "postcss-loader": "0.9.1",
