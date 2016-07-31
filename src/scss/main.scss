@@ -1,8 +1,13 @@
 @charset "UTF-8";
 
+@import "base/fonts";
+
 body {
-    background-color: green;
+    font: 16px/16px opensans;
+    text-align: center;
 }
 h1 {
-    color: #fff;
+    color: #333;
+    font-size: 4.25em;
+    font-weight: 300;
 }
