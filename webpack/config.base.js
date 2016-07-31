@@ -5,6 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { config } from '../package.json';
 import cssnext from 'postcss-cssnext';
 import cssnextConfig from './config/cssnext.json';
+import cssMqpacker from 'css-mqpacker';
 
 export const source = path.resolve(path.join(config.src));
 export const destination = path.resolve(path.join(config.dest));
@@ -79,7 +80,7 @@ export default () => {
         },
 
         postcss: () => {
-            return [cssnext(cssnextConfig)];
+            return [cssnext(cssnextConfig), cssMqpacker];
         },
 
         plugins: [
