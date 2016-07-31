@@ -3,6 +3,10 @@
 
 NodeJS V6.3.0
 
+Linux: `apt-get install libnotify-bin` <br />
+Mac OS: `brew install terminal-notifier`
+
+
 # INSTALLATION
 
 install node modules
@@ -13,12 +17,21 @@ install node modules
 
 `npm start`
 
-will start a live reloading webpack server on the port mentioned in the config of the package.json.
+will start a live reloading webpack dev server on the port mentioned in the config of the package.json.
 
 Default port = 4000
 
 # PACKAGE
 
-`npm clean && npm build`
+`npm run clean && npm run build`
 
-will clean the previous build and make a new one
+will clean the previous build and make a new one inside `/build`
+
+after having ran the build, we can check it by running `npm run start:prod`. This will run a server against the production build.
+
+# METHODS & TECHNIQUES
+
+ * front end build through [WebPack](https://webpack.github.io/)
+ * all styling is done with [Sass](http://sass-lang.com/)
+ * css methodology: [BEM](http://getbem.com/introduction/)
+ * please respect [Sass Guidelines](http://sass-guidelin.es/)
