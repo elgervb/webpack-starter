@@ -1,3 +1,18 @@
 {
-  "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "rules": {
+        "indent": [2, 4],
+        "no-debugger": 1,
+        "no-restricted-syntax": [
+            2,
+            "ForInStatement",
+            "LabeledStatement",
+            "WithStatement"
+        ],
+		"linebreak-style": 0,
+        "no-trailing-spaces": 0
+    },
+    "env": {
+        "browser": true
+    }
 }
