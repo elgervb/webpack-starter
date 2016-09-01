@@ -1,6 +1,6 @@
 import StyleLintPlugin from 'stylelint-webpack-plugin';
-import base, { source } from './config.base';
 import webpack from 'webpack';
+import base, { source } from './config.base';
 
 const config = base('development');
 

@@ -21,7 +21,7 @@ config.plugins = config.plugins.concat([
         // and relies on global variables. Most of angular modules relies on
         // angular global variable, so we should keep it unchanged
         except: ['$super', '$', 'exports', 'require'],
-    })
+    }),
 ]);
 
 export default config;
