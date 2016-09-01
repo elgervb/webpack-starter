@@ -1,4 +1,4 @@
-import styleLintPlugin from 'stylelint-webpack-plugin';
+import StyleLintPlugin from 'stylelint-webpack-plugin';
 import base, { source } from './config.base';
 import webpack from 'webpack';
 
@@ -9,9 +9,9 @@ config.watch = true;
 config.devtool = 'cheap-module-eval-source-map';
 
 config.plugins = config.plugins.concat([
-    new styleLintPlugin({
+    new StyleLintPlugin({
         context: source,
-        syntax: 'scss'
+        syntax: 'scss',
     }),
     new webpack.HotModuleReplacementPlugin(),
 ]);
