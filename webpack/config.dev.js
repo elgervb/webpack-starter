@@ -6,7 +6,7 @@ const config = base('development');
 
 // development overrides go here
 config.watch = true;
-config.devtool = 'cheap-module-eval-source-map';
+config.devtool = 'eval-source-map';
 
 config.plugins = config.plugins.concat([
     new StyleLintPlugin({
