@@ -100,10 +100,7 @@ export default () => ({
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: (module) => module.resource && 
-                                module.resource.indexOf(path.resolve(__dirname, '..', 'src')) === -1,
+                        module.resource.indexOf(path.resolve(__dirname, '..', 'src')) === -1,
         }),
     ],
 });
-
-
-console.log(path.resolve(__dirname, '..', 'src'));
