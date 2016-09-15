@@ -26,6 +26,7 @@ module.exports = (config) => {
         require('karma-phantomjs-launcher'),
         require('karma-sourcemap-loader'),
         require('karma-webpack'),
+        require('karma-spec-reporter'),
         ],
 
         // preprocess matching files before serving them to the browser
@@ -97,11 +98,11 @@ module.exports = (config) => {
         },
 
         webpackServer: {
-        noInfo: true // prevent console spamming when running in Karma!
+            noInfo: true // prevent console spamming when running in Karma!
         },
 
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage'],
+        reporters: ['spec', 'coverage'],
 
         // web server port
         port: 9876,
