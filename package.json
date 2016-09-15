@@ -19,7 +19,7 @@
     "start:prod": "babel-node -- ./node_modules/webpack-dev-server/bin/webpack-dev-server --inline --hot --colors --content-base=$npm_package_config_dest --config ./webpack/config.build.js --port $npm_package_config_port",
     "start:remote": "$npm_package_scripts_start --host=0.0.0.0",
     "test": "karma start",
-    "test-watch": "karma start --auto-watch --no-single-run",
+    "test:watch": "karma start --auto-watch --no-single-run",
     "watch": "babel-node -- ./node_modules/.bin/webpack --progress --colors --config webpack/config.dev.js",
     "lint": "eslint . --ext .js --ext .jsx || true"
   },

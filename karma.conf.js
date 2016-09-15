@@ -17,16 +17,16 @@ module.exports = (config) => {
         exclude: [],
 
         plugins: [
-        require('karma-coverage'),
-        require('karma-jasmine'),
-        require('karma-chrome-launcher'),
-        require('karma-firefox-launcher'),
-        require('karma-ie-launcher'),
-        require('karma-opera-launcher'),
-        require('karma-phantomjs-launcher'),
-        require('karma-sourcemap-loader'),
-        require('karma-webpack'),
-        require('karma-spec-reporter'),
+            require('karma-coverage'),
+            require('karma-jasmine'),
+            require('karma-chrome-launcher'),
+            require('karma-firefox-launcher'),
+            require('karma-ie-launcher'),
+            require('karma-opera-launcher'),
+            require('karma-phantomjs-launcher'),
+            require('karma-sourcemap-loader'),
+            require('karma-webpack'),
+            require('karma-spec-reporter'),
         ],
 
         // preprocess matching files before serving them to the browser
@@ -35,23 +35,23 @@ module.exports = (config) => {
 
         webpack: {
             babel: {
-                presets: ['es2015']
+                presets: ['es2015', 'stage-0'],
             },
             isparta: {
                 embedSource: true,
                 noAutoWrap: true,
                 babel: {
-                presets: ['es2015']
+                    presets: ['es2015', 'stage-0'],
                 }
             },
-            devtool: 'inline-source-map',
+            devtool: 'source-map',
             module: {
                 preLoaders: [
                 // transpile all files except testing sources with babel as usual
                 {
                     test: /\.js$/,
                     exclude: [
-                    path.resolve('client'),
+                    path.resolve('src'),
                     path.resolve('node_modules/')
                     ],
                     loader: 'babel'
@@ -59,7 +59,7 @@ module.exports = (config) => {
                 // transpile and instrument only testing sources with babel-istanbul
                 {
                     test: /\.js$/,
-                    include: path.resolve('client'),
+                    include: path.resolve('src'),
                     loader: 'babel-istanbul',
                     query: {
                     cacheDirectory: true

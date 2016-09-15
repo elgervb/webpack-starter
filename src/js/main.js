@@ -1,3 +1,4 @@
-/* eslint-disable no-console */
+import Counter from './components/counter';
 
-console.log('TEST');
+const counter = new Counter();
+counter.increase();

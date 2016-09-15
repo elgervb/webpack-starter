@@ -3,3 +3,30 @@
 @import 'base/base';
 @import "base/fonts";
 @import 'base/typography';
+
+@import 'layout/full-height';
+
+body {
+    color: #333;
+    overflow: hidden;
+    text-align: center;
+}
+.header1 {
+    text-shadow: 0 0 #000;
+}
+.webpack-img {
+    animation: 10s linear 6s infinite rotate;
+    left: 50%;
+    height: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+@keyframes rotate {
+    0% { }
+    10% { transform: translateX(-50%) rotate(360deg);}
+    15% { transform: translateX(-50%) rotate(0deg);}
+    59% { transform: translateX(-50%) rotate(0deg);}
+    60% { transform: translateX(-50%) rotate(-360deg);}
+    65% { transform: translateX(-50%) rotate(0deg);}
+}
