@@ -1,8 +1,11 @@
 @charset "UTF-8";
 
+@import 'base/reset';
 @import 'base/base';
 @import "base/fonts";
 @import 'base/typography';
+
+@import "components/counter";
 
 @import 'layout/full-height';
 
