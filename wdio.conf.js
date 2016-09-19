@@ -12,7 +12,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './src/**/*.e2e.js'
+        './src/**/*.e2e.js',
     ],
     // Patterns to exclude.
     exclude: [
@@ -41,21 +41,21 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-            // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-            // grid with only 5 firefox instance available you can make sure that not more than
-            // 5 instance gets started at a time.
-            maxInstances: 2,
-            //
-            browserName: 'phantomjs' // phantomjs, chrome
-        },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'chrome'
-        // },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'safari'
-        // }
+        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+        // grid with only 5 firefox instance available you can make sure that not more than
+        // 5 instance gets started at a time.
+        maxInstances: 2,
+        //
+        browserName: 'phantomjs',
+    },
+    // {
+    //     maxInstances: 1,
+    //     browserName: 'chrome'
+    // },
+    // {
+    //     maxInstances: 1,
+    //     browserName: 'safari'
+    // }
     ],
     //
     // ===================
@@ -133,22 +133,22 @@ exports.config = {
         // Jasmine default timeout
         defaultTimeoutInterval: 10000,
         //
-        // The Jasmine framework allows interception of each assertion in order to log the state of the application
-        // or website depending on the result. For example, it is pretty handy to take a screenshot every time
-        // an assertion fails.
-        expectationResultHandler: (passed, assertion) => {
+        // The Jasmine framework allows interception of each assertion in order to log the state of
+        // the application or website depending on the result. For example, it is pretty handy 
+        // to take a screenshot every time an assertion fails.
+        expectationResultHandler: (/* passed, assertion */) => {
             // do something
-        }
+        },
     },
     
     //
     // =====
     // Hooks
     // =====
-    // WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
-    // it and to build services around it. You can either apply a single function or an array of
-    // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
-    // resolved to continue.
+    // WebdriverIO provides several hooks you can use to interfere with the test process in order to
+    // enhance it and to build services around it. You can either apply a single function or an
+    // array of methods to it. If one of them returns with a promise, WebdriverIO will wait until 
+    // that promise got resolved to continue.
     //
     // Gets executed once before all workers get launched.
     // onPrepare: function (config, capabilities) {
@@ -202,4 +202,4 @@ exports.config = {
     // possible to defer the end of the process using a promise.
     // onComplete: function(exitCode) {
     // }
-}
+};
