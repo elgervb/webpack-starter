@@ -36,7 +36,7 @@ export default () => ({
         loaders: [
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
+                loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap'],
             },
             {
                 test: /\.js$/,
