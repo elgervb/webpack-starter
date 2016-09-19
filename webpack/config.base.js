@@ -99,7 +99,7 @@ export default () => ({
         // Automatically move all modules defined outside of application directory to vendor bundle.
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: (module) => module.resource && 
+            minChunks: module => module.resource && 
                         module.resource.indexOf(path.resolve(__dirname, '..', 'src')) === -1,
         }),
     ],
