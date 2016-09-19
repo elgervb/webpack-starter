@@ -35,3 +35,5 @@ after having ran the build, we can check it by running `npm run start:prod`. Thi
  * all styling is done with [Sass](http://sass-lang.com/)
  * css methodology: [BEM](http://getbem.com/introduction/)
  * please respect [Sass Guidelines](http://sass-guidelin.es/)
+ * unit tests with [KarmaJS](https://karma-runner.github.io) and [JasmineJS](http://jasmine.github.io/)
+ * end to end tests with [WebDriverIO](http://webdriver.io/)
