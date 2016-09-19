@@ -1,5 +1,7 @@
 require('babel-register');
 
+const isDebug = process.env.DEBUG;
+
 exports.config = {
     
     //
@@ -40,7 +42,7 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
+    capabilities: isDebug ? [{ maxInstances: 1, browserName: 'chrome' }] : [{
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instance available you can make sure that not more than
         // 5 instance gets started at a time.
@@ -82,7 +84,7 @@ exports.config = {
     baseUrl: 'http://localhost:4000',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: isDebug ? 999999999 : 10000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
@@ -131,7 +133,7 @@ exports.config = {
     jasmineNodeOpts: {
         //
         // Jasmine default timeout
-        defaultTimeoutInterval: 10000,
+        defaultTimeoutInterval: isDebug ? 999999999 : 10000,
         //
         // The Jasmine framework allows interception of each assertion in order to log the state of
         // the application or website depending on the result. For example, it is pretty handy 

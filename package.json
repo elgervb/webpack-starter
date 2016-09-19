@@ -21,6 +21,7 @@
     "test": "karma start",
     "test:watch": "karma start --auto-watch --no-single-run",
     "test:e2e": "./node_modules/.bin/wdio wdio.conf.js",
+    "test:e2e:debug": "DEBUG=true $npm_package_scripts_test_e2e",
     "watch": "babel-node -- ./node_modules/.bin/webpack --progress --colors --config webpack/config.dev.js",
     "lint": "eslint . --ext .js --ext .jsx || true",
     "webdriver:update": "webdriver-manager update",
