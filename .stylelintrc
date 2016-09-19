@@ -29,7 +29,6 @@
     "function-url-quotes": "always",
     "function-whitespace-after": "always",
     "indentation": 4,
-    "keyframe-declaration-no-important": true,
     "length-zero-no-unit": true,
     "max-empty-lines": 3,
     "max-nesting-depth": 4,
