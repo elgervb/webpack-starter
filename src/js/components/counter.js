@@ -1,4 +1,6 @@
-
+/**
+ * Simple counter class
+ */
 export default class Counter {
     constructor(count = 0) {
         this._count = count;

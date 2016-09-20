@@ -1,19 +1,20 @@
-/* global describe, it, expect */
+/* global describe, it, expect, beforeEach */
 import Counter from './counter.js';
 
 describe('counter.js', () => {
     let counter;
-    beforeEach(function() {
+    
+    beforeEach(() => {
         counter = new Counter(0);
     });
 
     it('has a default value when constructing', () => {
-        let c = new Counter();
+        const c = new Counter();
         expect(c.count()).toBe(0);
     });
 
     it('can create a new counter', () => {
-        expect(counter).toBeDefined;
+        expect(counter).toBeDefined();
     });
 
     it('can increase a counter', () => {

@@ -1,4 +1,4 @@
-import assert from 'assert';
+/* global describe, it, expect, browser */
 
 describe('counter setup', () => {
     let display, decrement, increment;
@@ -21,13 +21,11 @@ describe('counter setup', () => {
         expect(increment).toBeDefined();
     });
 
-
     it('should have a display', () => {
         expect(display.getText()).toBe('0');
     });
 
     describe('counter interaction', () => {
-
         it('should increment', () => {
             increment.click();
             expect(display.getText()).toBe('1');

@@ -1,3 +1,4 @@
+/* global describe, it, browser */
 import assert from 'assert';
 
 describe('webdriver.io page', () => {

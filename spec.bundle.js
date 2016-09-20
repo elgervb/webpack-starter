@@ -1,3 +1,4 @@
+/* global describe, it, expect */
 /*
  * When testing with Webpack and ES6, we have to do some
  * preliminary setup. Because we are writing our tests also in ES6,
@@ -18,7 +19,7 @@
 // Using that regex, we scan within `client/app` and target
 // all files ending with `.spec.js` and trace its path.
 // By passing in true, we permit this process to occur recursively.
-let context = require.context('./src', true, /\.spec.js/);
+const context = require.context('./src', true, /\.spec.js/);
 
 // Get all files, for each file, call the context function
 // that will require the file and load it here. Context will
@@ -27,8 +28,7 @@ context.keys().forEach(context);
 
 // check your global setup
 describe('global setup', () => {
-  
-//   it('should have angular', () => expect(angular).to.be.ok);
-//   it('should have angular-mocks', () => expect(mocks).to.be.ok);
-//   it('should have context', () => expect(context).to.be.ok);
+    //   it('should have angular', () => expect(angular).to.be.ok);
+    //   it('should have angular-mocks', () => expect(mocks).to.be.ok);
+    it('should have context', () => expect(context).toBeDefined());
 });
