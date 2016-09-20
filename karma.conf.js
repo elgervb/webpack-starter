@@ -17,16 +17,16 @@ module.exports = (config) => {
         exclude: [],
 
         plugins: [
-            require('karma-coverage'),
-            require('karma-jasmine'),
-            require('karma-chrome-launcher'),
-            require('karma-firefox-launcher'),
-            require('karma-ie-launcher'),
-            require('karma-opera-launcher'),
-            require('karma-phantomjs-launcher'),
-            require('karma-sourcemap-loader'),
-            require('karma-webpack'),
-            require('karma-spec-reporter'),
+            'karma-coverage',
+            'karma-jasmine',
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-ie-launcher',
+            'karma-opera-launcher',
+            'karma-phantomjs-launcher',
+            'karma-sourcemap-loader',
+            'karma-webpack',
+            'karma-spec-reporter',
         ],
 
         // preprocess matching files before serving them to the browser
@@ -42,63 +42,64 @@ module.exports = (config) => {
                 noAutoWrap: true,
                 babel: {
                     presets: ['es2015', 'stage-0'],
-                }
+                },
             },
             devtool: 'source-map',
             module: {
                 preLoaders: [
-                // transpile all files except testing sources with babel as usual
-                {
-                    test: /\.js$/,
-                    exclude: [
-                    path.resolve('src'),
-                    path.resolve('node_modules/')
-                    ],
-                    loader: 'babel'
-                },
-                // transpile and instrument only testing sources with babel-istanbul
-                {
-                    test: /\.js$/,
-                    include: path.resolve('src'),
-                    loader: 'babel-istanbul',
-                    query: {
-                    cacheDirectory: true
-                    }
-                }
+                    // transpile all files except testing sources with babel as usual
+                    {
+                        test: /\.js$/,
+                        exclude: [
+                            path.resolve('src'),
+                            path.resolve('node_modules/'),
+                        ],
+                        loader: 'babel',
+                    },
+                    // transpile and instrument only testing sources with babel-istanbul
+                    {
+                        test: /\.js$/,
+                        include: path.resolve('src'),
+                        loader: 'babel-istanbul',
+                        query: {
+                            cacheDirectory: true,
+                        },
+                    },
                 ],
                 loaders: [
-                {test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel'},
-                {test: /\.html/, loader: 'raw'},
-                {test: /\.scss$/, loader: 'style!css!sass'},
-                {test: /\.css$/, loader: 'style!css'},
-                {test: /\.(jpe?g|png|gif|svg)$/i,
-                    loaders: [
-                    'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                    'image-webpack'
-                    ]
-                }
+                    { test: /\.js/, exclude: [/app\/lib/, /node_modules/], loader: 'babel' },
+                    { test: /\.html/, loader: 'raw' },
+                    { test: /\.scss$/, loader: 'style!css!sass' },
+                    { test: /\.css$/, loader: 'style!css' },
+                    { 
+                        test: /\.(jpe?g|png|gif|svg)$/i,
+                        loaders: [
+                            'file?hash=sha512&digest=hex&name=[hash].[ext]',
+                            'image-webpack',
+                        ],
+                    },
                 ],
                 imageWebpackLoader: {
-                pngquant: {
-                    quality: '65-90',
-                    speed: 4
-                },
-                svgo: {
-                    plugins: [
-                    {
-                        removeViewBox: false
+                    pngquant: {
+                        quality: '65-90',
+                        speed: 4,
                     },
-                    {
-                        removeEmptyAttrs: false
-                    }
-                    ]
-                }
-                }
-            }
+                    svgo: {
+                        plugins: [
+                            {
+                                removeViewBox: false,
+                            },
+                            {
+                                removeEmptyAttrs: false,
+                            },
+                        ],
+                    },
+                },
+            },
         },
 
         webpackServer: {
-            noInfo: true // prevent console spamming when running in Karma!
+            noInfo: true, // prevent console spamming when running in Karma!
         },
 
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -111,7 +112,8 @@ module.exports = (config) => {
         colors: true,
 
         // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || 
+        //    config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
 
         // toggle whether to watch files and re-run tests upon incurring changes
@@ -124,23 +126,23 @@ module.exports = (config) => {
         // if true, Karma runs tests once and exits
         singleRun: true,
         coverageReporter: {
-        dir: 'reports/coverage',
-        reporters: [
-            {type: 'html', subdir: 'report-html'},
-            // { type: 'lcov', subdir: 'report-lcov' },
-            // // reporters supporting the `file` property, use `subdir` to directly 
-            // // output them in the `dir` directory 
-            // { type: 'cobertura', subdir: '.', file: 'cobertura.txt' },
-            // { type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
-            // { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
-            // { type: 'text', subdir: '.', file: 'text.txt' },
-            // { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
-            // { type: 'text'},
-            {type: 'text-summary'}
-        ],
-        instrumenterOptions: {
-            istanbul: {noCompact: true}
-        }
-        }
+            dir: 'reports/coverage',
+            reporters: [
+                { type: 'html', subdir: 'report-html' },
+                // { type: 'lcov', subdir: 'report-lcov' },
+                // // reporters supporting the `file` property, use `subdir` to directly 
+                // // output them in the `dir` directory 
+                // { type: 'cobertura', subdir: '.', file: 'cobertura.txt' },
+                // { type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
+                // { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
+                // { type: 'text', subdir: '.', file: 'text.txt' },
+                // { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
+                // { type: 'text'},
+                { type: 'text-summary' },
+            ],
+            instrumenterOptions: {
+                istanbul: { noCompact: true },
+            },
+        },
     });
 };
