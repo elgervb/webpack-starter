@@ -20,6 +20,7 @@
     "start:remote": "$npm_package_scripts_start --host=0.0.0.0",
     "test": "karma start",
     "test:watch": "karma start --auto-watch --no-single-run",
+    "test:debug": "DEBUG=true $npm_package_scripts_test_watch   ",
     "test:e2e": "./node_modules/.bin/wdio wdio.conf.js",
     "test:e2e:debug": "DEBUG=true $npm_package_scripts_test_e2e",
     "watch": "babel-node -- ./node_modules/.bin/webpack --progress --colors --config webpack/config.dev.js",

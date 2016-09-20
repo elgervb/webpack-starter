@@ -1,6 +1,11 @@
 /* global require */
 const path = require('path');
 
+const reporters = ['spec'];
+if (!process.env.DEBUG) { 
+    reporters.push('coverage');
+}
+
 module.exports = (config) => {
     config.set({
         // base path used to resolve all patterns
@@ -59,7 +64,7 @@ module.exports = (config) => {
                     // transpile and instrument only testing sources with babel-istanbul
                     {
                         test: /\.js$/,
-                        include: path.resolve('src'),
+                        include: process.env.DEBUG ? path.resolve('__noop') : path.resolve('src'),
                         loader: 'babel-istanbul',
                         query: {
                             cacheDirectory: true,
@@ -103,7 +108,7 @@ module.exports = (config) => {
         },
 
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['spec', 'coverage'],
+        reporters,
 
         // web server port
         port: 9876,
@@ -121,14 +126,14 @@ module.exports = (config) => {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'], // 'Chrome', 'Crome_without_security', 'Firefox', 'IE', 'Opera', 'PhantomJS'
+        browsers: ['Chrome'], // 'Chrome', 'Crome_without_security', 'Firefox', 'IE', 'Opera', 'PhantomJS'
 
         // if true, Karma runs tests once and exits
         singleRun: true,
         coverageReporter: {
             dir: 'reports/coverage',
             reporters: [
-                { type: 'html', subdir: 'report-html' },
+                { type: 'html', subdir: 'html' },
                 // { type: 'lcov', subdir: 'report-lcov' },
                 // // reporters supporting the `file` property, use `subdir` to directly 
                 // // output them in the `dir` directory 
@@ -137,7 +142,7 @@ module.exports = (config) => {
                 // { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
                 // { type: 'text', subdir: '.', file: 'text.txt' },
                 // { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
-                // { type: 'text'},
+                { type: 'text' },
                 { type: 'text-summary' },
             ],
             instrumenterOptions: {
