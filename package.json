@@ -12,8 +12,7 @@
     "src": "./src"
   },
   "scripts": {
-    "build": "npm run build:webpack",
-    "build:webpack": "babel-node -- ./node_modules/.bin/webpack --progress --colors --config webpack/config.build.js",
+    "build": "babel-node -- ./node_modules/.bin/webpack --progress --colors --config webpack/config.build.js",
     "clean": "rimraf $npm_package_config_dest",
     "start": "babel-node -- ./node_modules/webpack-dev-server/bin/webpack-dev-server --inline --hot --colors --content-base=$npm_package_config_src --config ./webpack/config.dev.js --port $npm_package_config_port",
     "start:prod": "babel-node -- ./node_modules/webpack-dev-server/bin/webpack-dev-server --inline --hot --colors --content-base=$npm_package_config_dest --config ./webpack/config.build.js --port $npm_package_config_port",
