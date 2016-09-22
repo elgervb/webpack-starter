@@ -7,11 +7,11 @@ const decrement = document.querySelector('.counter__action--decrement');
 if (display && increment && decrement) {
     const counter = new Counter();
 
-    increment.addEventListener('click', () => {
+    increment.addEventListener('mousedown', () => {
         display.innerText = counter.increase();
     });
 
-    decrement.addEventListener('click', () => {
+    decrement.addEventListener('mousedown', () => {
         display.innerText = counter.decrease();
     });
 }
