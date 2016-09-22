@@ -1,4 +1,6 @@
 
+![Travis CI build](https://travis-ci.org/elgervb/webpack-starter.svg)
+
 # PREREQUISITES
 
 NodeJS V6.3.0
