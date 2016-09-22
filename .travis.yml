@@ -15,9 +15,12 @@ addons:
       - g++-4.8
 before_script:
   - npm i
+  - npm run lint
   - npm start &
+  - npm run webdriver:update
+  - npm run webdriver:start &
 
 script:
-  - npm run lint
-#   - npm test
-#  - npm run teste2e
+  - npm test
+  - npm run test:e2e
+  - npm run build
