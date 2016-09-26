@@ -28,7 +28,7 @@
     "webdriver:start": "webdriver-manager start"
   },
   "author": "Elger van Boxtel",
-  "license": "PRIVATE",
+  "license": "Public",
   "dependencies": {
     "babel-register": "6.14.0",
     "copy-webpack-plugin": "3.0.1",
