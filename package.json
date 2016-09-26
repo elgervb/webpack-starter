@@ -24,6 +24,7 @@
     "test:e2e:debug": "DEBUG=true $npm_package_scripts_test_e2e",
     "watch": "babel-node -- ./node_modules/.bin/webpack --progress --colors --config webpack/config.dev.js",
     "lint": "eslint . --ext .js --ext .jsx || true",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "webdriver:update": "webdriver-manager update",
     "webdriver:start": "webdriver-manager start"
   },

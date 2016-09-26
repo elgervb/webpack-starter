@@ -1,5 +1,5 @@
 /* RESET */
-html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video,output{
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video, output {
     margin: 0;
     padding: 0;
     border: 0;
@@ -9,6 +9,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
     background: transparent;
     box-sizing: border-box;
 }
+
 html {
     /* stylelint-disable */
     /* line too long */
@@ -16,32 +17,39 @@ html {
     -webkit-text-size-adjust: 100%;
     /* stylelint-enable */
 }
-body{
+
+body {
     font: 16px/16px 'opensans';
     line-height: 1;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
-article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block;
 }
+
 figure {
     margin: 1em 40px;
 }
-audio,canvas,progress,video {
+
+audio, canvas, progress, video {
     display: inline-block;
     vertical-align: baseline;
 }
+
 p, ul, ol {
     line-height: normal;
 }
+
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-code,kbd,pre,samp {
+code, kbd, pre, samp {
     font-family: monospace, monospace, 'courier new';
     font-size: 1em;
 }
+
 /**
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
@@ -50,19 +58,23 @@ audio:not([controls]) {
     display: none;
     height: 0;
 }
+
 /**
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-[hidden],template {
+[hidden], template {
     display: none;
 }
-blockquote,q{
+
+blockquote, q {
     quotes: none;
 }
-blockquote:before,blockquote:after,q:before,q:after{
+
+blockquote:before, blockquote:after, q:before, q:after {
     content: '';
 }
+
 a {
     background: transparent;
     border-bottom: 1px solid transparent;
@@ -77,42 +89,51 @@ a {
         border-bottom: 1px solid currentColor;
         color: darken(#3498db, 10%);
     }
+
     &:visited {
         color: #3498db;
     }
 }
+
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-a:active,a:hover {
+a:active, a:hover {
     outline: 0;
 }
-del{
+
+del {
     text-decoration: line-through;
 }
-abbr[title],dfn[title]{
+
+abbr[title], dfn[title] {
     border-bottom: 1px dotted;
     cursor: help;
 }
-dfn{
+
+dfn {
     font-style: italic;
 }
-table{
+
+table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-hr{
+
+hr {
     display: block;
     height: 1px;
     border: 0;
     border-top: 1px solid #666;
 }
+
 /**
  * Contain overflow in all browsers.
  */
 pre {
     overflow: auto;
 }
+
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
@@ -122,12 +143,15 @@ sub, sup {
     position: relative;
     vertical-align: baseline;
 }
+
 sup {
     top: -.5em;
 }
+
 sub {
     bottom: -.25em;
 }
+
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
@@ -136,24 +160,28 @@ img {
     height: auto;
     max-width: 100%;
 }
+
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
 svg:not(:root) {
     overflow: hidden;
 }
-button,input,optgroup,select,textarea {
+
+button, input, optgroup, select, textarea {
     color: inherit;
     font: inherit;
     outline: 0;
     margin: 0;
 }
+
 input, select, textarea {
     box-shadow: none;
     box-sizing: border-box;
     padding: 0;
     vertical-align: middle;
 }
+
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
@@ -167,19 +195,23 @@ button {
     overflow: visible;
     -webkit-font-smoothing: inherit;
 }
-button,select {
+
+button, select {
     text-transform: none;
 }
-button,input[type='button'],input[type='reset'],input[type='submit'] {
+
+button, input[type='button'], input[type='reset'], input[type='submit'] {
     appearance: button;
     cursor: pointer;
 }
+
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled],input[disabled] {
+button[disabled], input[disabled] {
     cursor: default;
 }
+
 ::-moz-focus-inner {
     padding: 0;
     border: 0;
@@ -191,6 +223,7 @@ button[disabled],input[disabled] {
     -moz-padding-start: 0;
     /* stylelint-enable */
 }
+
 /**
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
@@ -198,6 +231,7 @@ button[disabled],input[disabled] {
 input {
     line-height: normal;
 }
+
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
  * `font-size` values of the `input`, it causes the cursor style of the
@@ -216,14 +250,17 @@ input[type='number']::-webkit-outer-spin-button {
 input[type='search'] {
     box-sizing: border-box;
 }
+
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-input[type='search']::-webkit-search-cancel-button, input[type='search']::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
     appearance: none;
 }
+
 /**
  * Define consistent border, margin, and padding.
  */
@@ -232,19 +269,23 @@ fieldset {
     margin: 0 2px;
     padding: .35em .625em .75em;
 }
+
 legend {
     border: 0;
     padding: 0;
 }
+
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 textarea {
     overflow: auto;
 }
+
 optgroup {
     font-weight: bold;
 }
+
 td, th {
     padding: 0;
 }
