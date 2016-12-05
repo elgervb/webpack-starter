@@ -14,6 +14,8 @@ export const destination = path.resolve(path.join(config.dest));
 
 export default () => ({
     entry: [
+        `webpack-dev-server/client?http://0.0.0.0:${config.config.port}`, // WebpackDevServer host and port
+        'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         'babel-polyfill',
         path.join(source, 'scss', 'main.scss'),
         path.join(source, 'js', 'main.js'),
