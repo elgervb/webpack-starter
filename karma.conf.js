@@ -2,7 +2,7 @@
 const path = require('path');
 
 const reporters = ['spec'];
-if (!process.env.DEBUG) { 
+if (!process.env.DEBUG) {
     reporters.push('coverage');
 }
 
@@ -49,7 +49,7 @@ module.exports = (config) => {
                     presets: ['es2015', 'stage-0'],
                 },
             },
-            devtool: 'source-map',
+            devtool: 'inline-source-map',
             module: {
                 preLoaders: [
                     // transpile all files except testing sources with babel as usual
@@ -76,7 +76,7 @@ module.exports = (config) => {
                     { test: /\.html/, loader: 'raw' },
                     { test: /\.scss$/, loader: 'style!css!sass' },
                     { test: /\.css$/, loader: 'style!css' },
-                    { 
+                    {
                         test: /\.(jpe?g|png|gif|svg)$/i,
                         loaders: [
                             'file?hash=sha512&digest=hex&name=[hash].[ext]',
@@ -117,7 +117,7 @@ module.exports = (config) => {
         colors: true,
 
         // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || 
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR ||
         //    config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
 
@@ -126,8 +126,14 @@ module.exports = (config) => {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'], // 'Chrome', 'Crome_without_security', 'Firefox', 'IE', 'Opera', 'PhantomJS'
+        browsers: ['PhantomJS'], // 'Chrome', 'Chrome_with_debugging', 'Firefox', 'IE', 'Opera', 'PhantomJS'
 
+        customLaunchers: {
+            Chrome_with_debugging: {
+                base: 'Chrome',
+                flags: ['--remote-debugging-port=9222'],
+            },
+        },
         // if true, Karma runs tests once and exits
         singleRun: true,
         coverageReporter: {
@@ -135,8 +141,8 @@ module.exports = (config) => {
             reporters: [
                 { type: 'html', subdir: 'html' },
                 // { type: 'lcov', subdir: 'report-lcov' },
-                // // reporters supporting the `file` property, use `subdir` to directly 
-                // // output them in the `dir` directory 
+                // // reporters supporting the `file` property, use `subdir` to directly
+                // // output them in the `dir` directory
                 // { type: 'cobertura', subdir: '.', file: 'cobertura.txt' },
                 // { type: 'lcovonly', subdir: '.', file: 'report-lcovonly.txt' },
                 // { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
