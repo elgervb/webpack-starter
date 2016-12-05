@@ -14,7 +14,7 @@ export const destination = path.resolve(path.join(config.dest));
 
 export default () => ({
     entry: [
-        `webpack-dev-server/client?http://0.0.0.0:${config.config.port}`, // WebpackDevServer host and port
+        `webpack-dev-server/client?http://0.0.0.0:${config.port}`, // WebpackDevServer host and port
         'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         'babel-polyfill',
         path.join(source, 'scss', 'main.scss'),
@@ -30,8 +30,8 @@ export default () => ({
                 loader: 'eslint-loader',
             },
             {
-                test: /\.html/, 
-                loader: 'htmlhint', 
+                test: /\.html/,
+                loader: 'htmlhint',
                 exclude: [/node_modules/],
             },
         ],
@@ -46,7 +46,7 @@ export default () => ({
                 loader: 'babel',
             },
             {
-                test: /\.html$/, 
+                test: /\.html$/,
                 loader: 'raw',
             },
             {
@@ -62,7 +62,7 @@ export default () => ({
             },
         ],
     },
-    
+
     eslint: {
         configFile: '.eslintrc',
     },
@@ -70,7 +70,7 @@ export default () => ({
     htmlhint: {
         configFile: '.htmlhintrc',
     },
-    
+
     sassLoader: {
         includePaths: [
             './node_modules',
@@ -101,7 +101,7 @@ export default () => ({
         // Automatically move all modules defined outside of application directory to vendor bundle.
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: module => module.resource && 
+            minChunks: module => module.resource &&
                         module.resource.indexOf(path.resolve(__dirname, '..', 'src')) === -1,
         }),
     ],
