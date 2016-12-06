@@ -1,4 +1,5 @@
 import Counter from './components/counter';
+import '../scss/main.scss';
 
 const display = document.querySelector('.counter__display');
 const increment = document.querySelector('.counter__action--increment');

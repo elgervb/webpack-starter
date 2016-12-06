@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import cssMqpacker from 'css-mqpacker';
@@ -14,12 +15,7 @@ export const destination = path.resolve(path.join(config.dest));
 
 export default () => ({
     entry: [
-        `webpack-dev-server/client?http://0.0.0.0:${config.port}`, // WebpackDevServer host and port
-        'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-        'babel-polyfill',
-        path.join(source, 'scss', 'main.scss'),
-        path.join(source, 'js', 'main.js'),
-        path.join(source, 'index.html'),
+        path.join(source, 'js', 'main'),
     ],
 
     module: {
@@ -86,14 +82,18 @@ export default () => ({
 
     plugins: [
         new ExtractTextPlugin('css/[name].css'),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'src/index.html',
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'counter.html',
+            template: 'src/counter.html',
+        }),
         new CopyWebpackPlugin([
             {
                 from: path.join(source, 'assets'),
                 to: path.join(destination, 'assets'),
-            },
-            {
-                from: path.join(source, 'index.html'),
-                to: path.join(destination, 'index.html'),
             },
         ]),
         new webpack.NoErrorsPlugin(),

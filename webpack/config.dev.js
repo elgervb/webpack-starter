@@ -2,13 +2,17 @@ import StyleLintPlugin from 'stylelint-webpack-plugin';
 import webpack from 'webpack';
 import base, { source } from './config.base';
 
-const config = base('development');
+const wpconfig = base('development');
 
 // development overrides go here
-config.watch = true;
-config.devtool = 'eval-source-map';
+wpconfig.watch = true;
+wpconfig.devtool = 'eval-source-map';
+wpconfig.entry = wpconfig.entry.concat([
+    'webpack-dev-server/client?http://0.0.0.0:4000', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+]);
 
-config.plugins = config.plugins.concat([
+wpconfig.plugins = wpconfig.plugins.concat([
     new StyleLintPlugin({
         context: source,
         syntax: 'scss',
@@ -16,4 +20,4 @@ config.plugins = config.plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
 ]);
 
-export default config;
+export default wpconfig;
