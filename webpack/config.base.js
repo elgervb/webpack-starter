@@ -77,6 +77,9 @@ export default () => ({
         filename: 'js/[name].js',
         path: destination,
     },
+    devServer: {
+        outputPath: destination
+    },
 
     postcss: () => [cssnext(cssnextConfig), cssMqpacker],
 
