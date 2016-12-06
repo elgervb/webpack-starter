@@ -1,0 +1,23 @@
+{
+    "modulePaths": [
+      "src/js"
+    ],
+    "collectCoverageFrom": [
+      "src/js/**/*.js"
+    ],
+    "coverageDirectory": "reports",
+    "coverageReporters": ["json", "lcov", "text-summary"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "notify": true,
+    "testPathDirs": [
+      "src/js/"
+    ],
+    "testURL": "http://localhost:4000"
+}
