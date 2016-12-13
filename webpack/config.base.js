@@ -8,6 +8,8 @@ import cssnext from 'postcss-cssnext';
 import WebpackErrorNotificationPlugin from 'webpack-error-notification';
 
 import { config } from '../package.json';
+import preloaders from './config/preloaders';
+import loaders from './config/loaders';
 import cssnextConfig from './config/cssnext.json';
 
 export const source = path.resolve(path.join(config.src));
@@ -19,44 +21,8 @@ export default () => ({
     ],
 
     module: {
-        preLoaders: [
-            {
-                test: /\.js$/,
-                include: [source],
-                loader: 'eslint-loader',
-            },
-            {
-                test: /\.html/,
-                loader: 'htmlhint',
-                exclude: [/node_modules/],
-            },
-        ],
-        loaders: [
-            {
-                test: /\.scss$/,
-                loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap'],
-            },
-            {
-                test: /\.js$/,
-                exclude: [/node_modules/],
-                loader: 'babel',
-            },
-            {
-                test: /\.html$/,
-                loader: 'raw',
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: [
-                    'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                    'image-webpack',
-                ],
-            },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file',
-            },
-        ],
+        preLoaders: preloaders(source),
+        loaders: loaders(source),
     },
 
     eslint: {
@@ -77,6 +43,7 @@ export default () => ({
         filename: 'js/[name].js',
         path: destination,
     },
+
     devServer: {
         outputPath: destination
     },
