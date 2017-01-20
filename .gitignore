@@ -3,5 +3,4 @@
 /reports/
 .npm
 *.log
-
 yarn.lock
